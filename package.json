@@ -1,18 +1,23 @@
 {
-  "name": "wapp",
+  "name": "safe-view-once-recovery",
   "version": "1.0.0",
-  "description": "",
+  "description": "A hardened personal WhatsApp view-once recovery bot",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "check": "node --check index.js",
+    "test": "node --test"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "dependencies": {
-    "@whiskeysockets/baileys": "^7.0.0-rc13",
-    "pino": "^10.3.1",
-    "qrcode-terminal": "^0.12.0"
+    "@whiskeysockets/baileys": "7.0.0-rc13",
+    "pino": "10.3.1",
+    "qrcode-terminal": "0.12.0"
   }
 }

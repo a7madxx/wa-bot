@@ -1,0 +1,28 @@
+[Unit]
+Description=Personal WhatsApp recovery bot
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=ubuntu
+Group=ubuntu
+WorkingDirectory=/home/ubuntu/wa-bot
+ExecStart=/usr/bin/node /home/ubuntu/wa-bot/index.js
+Restart=on-failure
+RestartSec=10
+TimeoutStopSec=30
+UMask=0077
+Environment=NODE_ENV=production
+StandardOutput=journal
+StandardError=journal
+
+# Basic service hardening. The bot only needs to write inside its own folder.
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ProtectHome=read-only
+ReadWritePaths=/home/ubuntu/wa-bot
+
+[Install]
+WantedBy=multi-user.target
